@@ -6,9 +6,9 @@ This application is a frontend for sensors that publish their measurements via
 MQTT messages. The main functionality is the display of sensor values in a table
 and corresponding plots, that visualize the data in real-time.
 
-![Sensor Table](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/blob/master/docs/img/ui-home-screenshot.png "Sensor Table")
+![Sensor Table](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-home-screenshot.png?inline=false "Sensor Table")
 
-![Sensor Graph View](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/blob/master/docs/img/ui-live-screenshot.png "Sensor Graph View")
+![Sensor Graph View](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-live-screenshot.png?inline=false "Sensor Graph View")
 
 ### Protocol
 
