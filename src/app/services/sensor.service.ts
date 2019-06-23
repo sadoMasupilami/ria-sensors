@@ -63,7 +63,7 @@ export class SensorService {
 
   private startSensorMonitor(): void {
     this.subscription.add(interval(1000).pipe(
-      mergeMap(() => this.store.select(selectSensorsStaleForMillis, {gracePeriodMillis: 10000})),
+      mergeMap(() => this.store.select(selectSensorsStaleForMillis, {gracePeriodMillis: 20000})),
       mergeMap((sensors: SensorWithMeasurements[]) => from(sensors))
     ).subscribe((sensor: SensorWithMeasurements) =>
       this.store.dispatch(deleteSensor({assetName: sensor.assetName}))));

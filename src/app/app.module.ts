@@ -38,17 +38,9 @@ import {metaReducers, reducers} from './store/reducers';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {SensorTableComponent} from './sensor-table/sensor-table.component';
-import {IMqttServiceOptions, MqttModule} from 'ngx-mqtt';
+import {MqttModule} from 'ngx-mqtt';
 
 PlotlyModule.plotlyjs = PlotlyJS;
-
-export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-  hostname: 'localhost',
-  port: 15675,
-  path: '/ws',
-  username: 'rabbitmq',
-  password: 'rabbitmq'
-};
 
 @NgModule({
   declarations: [
@@ -87,9 +79,9 @@ export const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     PlotlyModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers, {metaReducers}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
+    MqttModule.forRoot(environment.mqttBroker)
   ],
   providers: [SensorService],
   bootstrap: [AppComponent]

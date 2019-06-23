@@ -9,7 +9,7 @@ export interface State {
   [assetName: string]: Measurements;
 }
 
-const MAX_VALUES_PER_KEY = 500;
+const MAX_VALUES_PER_KEY = 100;
 
 const measurementReducer = createReducer(
   {},

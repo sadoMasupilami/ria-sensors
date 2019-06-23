@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  mqttBroker: {
+    hostname: 'localhost',
+    port: 15675,
+    path: '/ws',
+    username: 'rabbitmq',
+    password: 'rabbitmq'
+  }
 };
 
 /*
