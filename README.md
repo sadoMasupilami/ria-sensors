@@ -83,6 +83,8 @@ docker-compose down
 
 ```
 
+To start a test sensor run `npm run sensor <n>` where `<n>` is an integer. 
+
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically 
