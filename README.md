@@ -61,13 +61,37 @@ For the visual design of the application *Material Design* was used as a CSS fra
 
 ## Installation
 
+### Docker setup
+
+The repository contains a docker-compose configuration that includes the app and a RabbitMQ broker.
+To build and start the app with a complete setup run the following command in the project root 
+folder:
+
+```
+docker-compose up
+
+```
+
+This builds the docker image and starts the containers. 
+
+*WARNING: The first docker build may take a significant amount of time since the angular app is 
+build in 'prod' mode. Think first make run of a huge C++ project in the late 90s.*
+
+To stop the containers run the following command again in the project root folder:
+```
+docker-compose down
+
+```
+
 ### Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically 
+reload if you change any of the source files.
 
 ### Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use 
+the `--prod` flag for a production build.
 
 ### Running unit tests
 

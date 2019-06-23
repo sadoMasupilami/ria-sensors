@@ -1,3 +1,10 @@
 export const environment = {
-  production: true
+  production: true,
+  mqttBroker: {
+    hostname: 'localhost',
+    port: 15675,
+    path: '/ws',
+    username: 'rabbitmq',
+    password: 'rabbitmq'
+  }
 };
