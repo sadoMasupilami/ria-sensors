@@ -6,7 +6,11 @@ This application is a frontend for sensors that publish their measurements via
 MQTT messages. The main functionality is the display of sensor values in a table
 and corresponding plots, that visualize the data in real-time.
 
+**Sensor Table**
+
 ![Sensor Table](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-home-screenshot.png?inline=false "Sensor Table")
+
+**Sensor Graph View**
 
 ![Sensor Graph View](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-live-screenshot.png?inline=false "Sensor Graph View")
 
@@ -49,6 +53,9 @@ version of the application state. The state itself is immutable.
 The major benefits of this model are the increased decoupling of the application from the
 presentation logic and the increased testability. A reducer is a pure function and can therefore
 be tested in complete isolation.
+
+The communication with the sensor backend happens via Websockets using the MQTT protocol. Any
+changes in measurements are pushed to the UI in real-time.
 
 For the visual design of the application *Material Design* was used as a CSS framework. 
 
