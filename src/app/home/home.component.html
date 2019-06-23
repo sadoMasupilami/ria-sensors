@@ -1,0 +1,7 @@
+<div style="text-align:center">
+    <img width="40%" alt="logo" src="../../assets/octogon_logo-medium_black.svg">
+</div>
+
+<app-sensor-table *ngIf="sensorsAvailable$ | async" id="mainTable"></app-sensor-table>
+
+<h2 *ngIf="!(sensorsAvailable$ | async)" style="text-align: center">WAITING FOR SENSOR DATA...</h2>

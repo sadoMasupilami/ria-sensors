@@ -1,0 +1,42 @@
+<table mat-table [dataSource]="sensorData" class="sensor-table mat-elevation-z1">
+
+  <ng-container matColumnDef="assetName">
+    <th mat-header-cell *matHeaderCellDef>Asset Name</th>
+    <td mat-cell *matCellDef="let sensorDataRecord">{{sensorDataRecord.assetName}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="assetId">
+    <th mat-header-cell *matHeaderCellDef>Asset ID</th>
+    <td mat-cell *matCellDef="let sensorDataRecord">{{sensorDataRecord.assetId}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="warehouseId">
+    <th mat-header-cell *matHeaderCellDef>Warehouse ID</th>
+    <td mat-cell *matCellDef="let sensorDataRecord">{{sensorDataRecord.warehouseId}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastMeasurementsReceived">
+    <th mat-header-cell *matHeaderCellDef>Most Recent Values</th>
+    <td mat-cell *matCellDef="let sensorDataRecord">
+      <p *ngFor="let measurement of sensorDataRecord.lastMeasurementsReceived">
+        <b>{{measurement.key}}:</b> {{measurement.value | number: '1.2-2'}}
+      </p>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastValueReceivedAt">
+    <th mat-header-cell *matHeaderCellDef>Last Value Received At</th>
+    <td mat-cell *matCellDef="let sensorDataRecord">{{sensorDataRecord.lastMeasurementReceivedAt | date:'dd/MM/yy HH:MM:ss'}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="liveDataButton">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let sensorDataRecord">
+      <a mat-stroked-button [routerLink]="['/live', sensorDataRecord.assetName]">Show Live Data</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

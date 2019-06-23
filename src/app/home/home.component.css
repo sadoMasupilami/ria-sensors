@@ -1,0 +1,26 @@
+img {
+    padding-top: 4%;
+    padding-bottom: 3em;
+}
+
+/*.testText {*/
+/*    margin: 50px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*#mainTable {*/
+/*    max-width: 100%;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+:host {
+  width: 100%;
+}
+
+/*!*not working*!*/
+/*.mat-column-value .mat-column-voltage-ratio {*/
+/*    !*max-width: 50px;*!*/
+/*    !*min-width: 50px;*!*/
+/*    width: 50px;*/
+/*    background-color: green;*/
+/*}*/

@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.sensor-plot {
+  min-width: 60%;
+  margin: 3em;
+}

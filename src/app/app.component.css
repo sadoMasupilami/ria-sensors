@@ -1,0 +1,41 @@
+mat-sidenav-container {
+  height: 100%;
+}
+
+mat-sidenav {
+  padding-left: 0;
+  padding-top: 0;
+}
+
+mat-sidenav-content {
+  padding: 0;
+}
+
+mat-sidenav {
+  /*background-color: #3f51b5;*/
+  /*width: 250px;*/
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+#recordToggle {
+  margin-top: 0.7em;
+  margin-left: 0.9em;
+}
+
+.header-toolbar {
+  position: fixed;
+  z-index: 2;
+}
+
+#head-pusher {
+  margin-top: 72px;
+}
+
+.activeLink {
+  background-color: lightgrey;
+}
