@@ -3,26 +3,25 @@ exports.__esModule = true;
 var mqtt = require("mqtt");
 var _ = require("lodash");
 var moment = require("moment");
+
+
 var sensorNumber = process.argv[2] || '1';
+
+var host = process.argv[3] || 'localhost:1883';
+
 var sensorName = "sensor-" + sensorNumber;
 console.log("Start Sensor " + sensorName);
 var topicName = "/sensors/" + sensorName;
 var intervalHandle;
 var options = {
-    clientId: sensorName,
-    username: 'rabbitmq',
-    password: 'rabbitmq'
+    clientId: sensorName
 };
-var client = mqtt.connect('mqtt://localhost:1883', options);
+var client = mqtt.connect('mqtt://' + host, options);
 client.on('connect', function () {
-    client.subscribe('/#', function (err) {
-        if (!err) {
-            client.publish(topicName, JSON.stringify(createFakeSensorEvent()));
-        }
-    });
+    //
     intervalHandle = setInterval(function () {
         client.publish(topicName, JSON.stringify(createFakeSensorEvent()));
-    }, 10);
+    }, 200);
 });
 process.on('SIGTERM', function () {
     console.info('SIGTERM signal received.');
