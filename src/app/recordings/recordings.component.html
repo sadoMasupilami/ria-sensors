@@ -10,10 +10,10 @@
     <td mat-cell *matCellDef="let recording" fxShow fxHide.lt-md>{{recording.assetName}}</td>
   </ng-container>
 
-  <ng-container matColumnDef="downloadCsv">
-    <th mat-header-cell *matHeaderCellDef>Download CSV</th>
+  <ng-container matColumnDef="downloadJson">
+    <th mat-header-cell *matHeaderCellDef>Download JSON</th>
     <td mat-cell *matCellDef="let recording">
-      <a mat-stroked-button><mat-icon mat-list-icon>save</mat-icon></a>
+      <a mat-stroked-button (click)="downloadJson(recording)"><mat-icon mat-list-icon>save</mat-icon></a>
     </td>
   </ng-container>
 

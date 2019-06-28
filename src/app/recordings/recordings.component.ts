@@ -5,6 +5,8 @@ import {Store} from '@ngrx/store';
 import * as fromRoot from '../store/reducers';
 import {savedRecordings} from '../store/reducers';
 import {RecordingService} from '../services/recording.service';
+import {saveAs} from 'file-saver';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-recordings',
@@ -15,7 +17,7 @@ export class RecordingsComponent implements OnInit {
 
   recordings$: Observable<Recording[]>;
 
-  displayedColumns: string[] = ['date', 'assetName', 'downloadCsv', 'delete'];
+  displayedColumns: string[] = ['date', 'assetName', 'downloadJson', 'delete'];
 
   constructor(
     private store: Store<fromRoot.State>,
@@ -24,6 +26,13 @@ export class RecordingsComponent implements OnInit {
 
   ngOnInit() {
     this.recordings$ = this.store.select(savedRecordings);
+  }
+
+  downloadJson(recording: Recording) {
+    const recordingJson = JSON.stringify(recording);
+
+    const blob = new Blob([recordingJson], {type: 'text/json'});
+    saveAs(blob, `${recording.assetName}-${moment(recording.date).format('YYYY-MM-DD_HHmmSS')}.json`);
   }
 
 }

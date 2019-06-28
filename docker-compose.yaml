@@ -14,8 +14,8 @@ services:
     volumes:
       - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
 
-  sensor-ui:
-    build: .
-    ports:
-      - "8080:80"
+#  sensor-ui:
+#    build: .
+#    ports:
+#      - "8080:80"
 
