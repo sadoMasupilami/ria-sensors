@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   mqttBroker: {
-    hostname: 'localhost',
+    hostname: window.location.hostname,
     port: 15675,
     path: '/ws'
   }
