@@ -4,6 +4,7 @@ import {Recording} from '../model/recording.model';
 import {Store} from '@ngrx/store';
 import * as fromRoot from '../store/reducers';
 import {savedRecordings} from '../store/reducers';
+import {RecordingService} from '../services/recording.service';
 
 @Component({
   selector: 'app-recordings',
@@ -16,7 +17,10 @@ export class RecordingsComponent implements OnInit {
 
   displayedColumns: string[] = ['date', 'assetName', 'downloadCsv', 'delete'];
 
-  constructor(private store: Store<fromRoot.State>) { }
+  constructor(
+    private store: Store<fromRoot.State>,
+    private recordingService: RecordingService
+  ) { }
 
   ngOnInit() {
     this.recordings$ = this.store.select(savedRecordings);

@@ -4,7 +4,6 @@ import {Recording} from '../../model/recording.model';
 import * as MeasurementActions from '../actions/measurement.actions';
 import * as RecordingActions from '../actions/recording.actions';
 
-
 const MAX_RECORDING_VALUES = 10000;
 
 
@@ -15,10 +14,30 @@ export interface State {
   savedRecordings: Recording[];
 }
 
-const initialState: State = {
-  activeRecordings: {},
-  savedRecordings: []
-};
+function loadInitialState(): State {
+  if (typeof (Storage) !== 'undefined') {
+    try {
+      const rawSensorRecordings = localStorage.getItem('savedSensorRecordings');
+      if (rawSensorRecordings) {
+        const saveRecs = JSON.parse(rawSensorRecordings);
+        return {
+          activeRecordings: {},
+          savedRecordings: saveRecs
+        };
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  // otherwise
+  return {
+    activeRecordings: {},
+    savedRecordings: []
+  };
+
+}
+
+const initialState: State = loadInitialState();
 
 const recordingReducer = createReducer(
   initialState,
@@ -50,12 +69,16 @@ const recordingReducer = createReducer(
       };
     })
   ),
-  on(RecordingActions.stopRecording, (state, action) => produce(state, drafState => {
-    const activeRecording = drafState.activeRecordings[action.assetName];
-    if (drafState.activeRecordings[action.assetName]) {
-      drafState.savedRecordings.push(activeRecording);
-      drafState.activeRecordings[action.assetName] = undefined;
+  on(RecordingActions.stopRecording, (state, action) => produce(state, draftState => {
+    const activeRecording = draftState.activeRecordings[action.assetName];
+    if (draftState.activeRecordings[action.assetName]) {
+      draftState.savedRecordings.push(activeRecording);
+      draftState.activeRecordings[action.assetName] = undefined;
     }
+  })),
+  on(RecordingActions.deleteRecording, (state, action) => ({
+    activeRecordings: state.activeRecordings,
+    savedRecordings: state.savedRecordings.filter(rec => rec.id !== action.id)
   }))
 );
 
