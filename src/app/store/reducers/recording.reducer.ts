@@ -43,6 +43,7 @@ const recordingReducer = createReducer(
   ),
   on(RecordingActions.startRecording, (state, action) => produce(state, draftState => {
       draftState.activeRecordings[action.assetName] = {
+        id: action.id,
         date: action.date,
         assetName: action.assetName,
         measurements: {}

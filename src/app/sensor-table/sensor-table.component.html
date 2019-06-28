@@ -26,13 +26,28 @@
 
   <ng-container matColumnDef="lastValueReceivedAt">
     <th mat-header-cell *matHeaderCellDef>Last Value Received At</th>
-    <td mat-cell *matCellDef="let sensorDataRecord">{{sensorDataRecord.lastMeasurementReceivedAt | date:'dd/MM/yy HH:MM:ss'}}</td>
+    <td mat-cell
+        *matCellDef="let sensorDataRecord">{{sensorDataRecord.lastMeasurementReceivedAt | date:'dd/MM/yy HH:MM:ss'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="liveDataButton">
     <th mat-header-cell *matHeaderCellDef fxShow fxHide.lt-md></th>
     <td mat-cell *matCellDef="let sensorDataRecord" fxShow fxHide.lt-md>
       <a mat-stroked-button [routerLink]="['/live', sensorDataRecord.assetName]">Show Live Data</a>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="recordButton">
+    <th mat-header-cell *matHeaderCellDef fxShow fxHide.lt-md></th>
+    <td mat-cell *matCellDef="let sensorDataRecord" fxShow fxHide.lt-md>
+<!--      <ng-container *ngIf="!(activeRecordings$ | async)[sensorDataRecord.assetName]; then startRecording; else stopRecording">-->
+<!--      </ng-container>-->
+      <ng-container *ngIf="!(activeRecordings$ | async)[sensorDataRecord.assetName]" >
+        <a (click)="recordingService.startRecording(sensorDataRecord.assetName)" mat-stroked-button>Start Recording</a>
+      </ng-container>
+      <ng-container *ngIf="(activeRecordings$ | async)[sensorDataRecord.assetName]">
+        <a (click)="recordingService.stopRecording(sensorDataRecord.assetName)" mat-stroked-button>Stop Recording</a>
+      </ng-container>
     </td>
   </ng-container>
 

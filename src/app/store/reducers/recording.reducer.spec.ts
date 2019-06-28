@@ -9,16 +9,16 @@ describe('The action startRecording', () => {
     const RECORDING_ID = '1234';
 
     const nextState = fromRecordings.reducer(undefined, RecordingActions.startRecording({
+      id: RECORDING_ID,
       date: DATE,
       assetName: ASSET_NAME
     }));
 
-    expect(nextState.activeRecordings[ASSET_NAME]).toEqual({
-      id: RECORDING_ID,
-      date: DATE,
-      assetName: ASSET_NAME,
-      measurements: {}
-    });
+    expect(nextState.activeRecordings[ASSET_NAME].id).toEqual(RECORDING_ID);
+    expect(nextState.activeRecordings[ASSET_NAME].assetName).toEqual(ASSET_NAME);
+    expect(nextState.activeRecordings[ASSET_NAME].measurements).toEqual({});
+    expect(nextState.activeRecordings[ASSET_NAME].date).toEqual(DATE);
+
     expect(nextState.savedRecordings).toEqual([]);
   });
 });

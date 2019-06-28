@@ -39,6 +39,8 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
 import {SensorTableComponent} from './sensor-table/sensor-table.component';
 import {MqttModule} from 'ngx-mqtt';
+import {RecordingsComponent} from './recordings/recordings.component';
+import {RecordingService} from './services/recording.service';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -48,6 +50,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     HomeComponent,
     LiveComponent,
     SensorTableComponent,
+    RecordingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     MqttModule.forRoot(environment.mqttBroker)
   ],
-  providers: [SensorService],
+  providers: [SensorService, RecordingService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,8 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {DataSource} from '@angular/cdk/table';
 import {Store} from '@ngrx/store';
 import * as fromRoot from '../store/reducers';
+import {activeRecordings} from '../store/reducers';
 import {SensorTableDataSource} from './sensor-table.datasource';
 import {SensorWithMeasurements} from '../model/sensor.model';
+import {Observable} from 'rxjs';
+import {Recording} from '../model/recording.model';
+import {RecordingService} from '../services/recording.service';
 
 @Component({
   selector: 'app-sensor-table',
@@ -13,13 +17,27 @@ import {SensorWithMeasurements} from '../model/sensor.model';
 export class SensorTableComponent implements OnInit {
 
   sensorData: DataSource<SensorWithMeasurements>;
-  displayedColumns = ['assetName', 'assetId', 'warehouseId', 'lastMeasurementsReceived', 'lastValueReceivedAt', 'liveDataButton'];
+  displayedColumns = [
+    'assetName',
+    'assetId',
+    'warehouseId',
+    'lastMeasurementsReceived',
+    'lastValueReceivedAt',
+    'liveDataButton',
+    'recordButton'
+  ];
 
-  constructor(private store: Store<fromRoot.State>) {
+  activeRecordings$: Observable<{ [assetName: string]: Recording }>;
+
+  constructor(
+    private store: Store<fromRoot.State>,
+    private recordingService: RecordingService
+  ) {
     this.sensorData = new SensorTableDataSource(store);
   }
 
   ngOnInit() {
+    this.activeRecordings$ = this.store.select(activeRecordings);
   }
 
 }

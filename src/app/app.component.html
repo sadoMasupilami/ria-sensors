@@ -7,9 +7,12 @@
         <span class="nav-caption">Home</span>
       </a>
       <a mat-list-item routerLink="/live" routerLinkActive="activeLink" (click)="sidenav.close()">
-        <!--      <a mat-list-item routerLink="/recordings">-->
         <mat-icon mat-list-icon>ondemand_video</mat-icon>
         <span class="nav-caption">Live</span>
+      </a>
+      <a mat-list-item routerLink="/recordings" routerLinkActive="activeLink" (click)="sidenav.close()">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <span class="nav-caption">Recordings</span>
       </a>
     </mat-nav-list>
 

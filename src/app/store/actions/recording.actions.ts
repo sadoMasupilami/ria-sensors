@@ -8,6 +8,7 @@ export enum RecordingActionTypes {
 export const startRecording = createAction(
   RecordingActionTypes.StartRecording,
   props<{
+    id: string;
     date: Date;
     assetName: string;
   }>()

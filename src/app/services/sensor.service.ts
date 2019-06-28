@@ -33,12 +33,6 @@ interface SensorEvent {
 @Injectable()
 export class SensorService {
 
-  readonly options = {
-    clientId: 'webclient',
-    username: 'rabbitmq',
-    password: 'rabbitmq'
-  };
-
   private values: number[] = [];
 
   private subscription: Subscription;
