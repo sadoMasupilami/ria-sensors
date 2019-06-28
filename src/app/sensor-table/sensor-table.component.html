@@ -6,13 +6,13 @@
   </ng-container>
 
   <ng-container matColumnDef="assetId">
-    <th mat-header-cell *matHeaderCellDef>Asset ID</th>
-    <td mat-cell *matCellDef="let sensorDataRecord">{{sensorDataRecord.assetId}}</td>
+    <th mat-header-cell *matHeaderCellDef fxShow fxHide.lt-md>Asset ID</th>
+    <td mat-cell *matCellDef="let sensorDataRecord" fxShow fxHide.lt-md>{{sensorDataRecord.assetId}}</td>
   </ng-container>
 
   <ng-container matColumnDef="warehouseId">
-    <th mat-header-cell *matHeaderCellDef>Warehouse ID</th>
-    <td mat-cell *matCellDef="let sensorDataRecord">{{sensorDataRecord.warehouseId}}</td>
+    <th mat-header-cell *matHeaderCellDef fxShow fxHide.lt-md>Warehouse ID</th>
+    <td mat-cell *matCellDef="let sensorDataRecord" fxShow fxHide.lt-md>{{sensorDataRecord.warehouseId}}</td>
   </ng-container>
 
   <ng-container matColumnDef="lastMeasurementsReceived">
@@ -30,8 +30,8 @@
   </ng-container>
 
   <ng-container matColumnDef="liveDataButton">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let sensorDataRecord">
+    <th mat-header-cell *matHeaderCellDef fxShow fxHide.lt-md></th>
+    <td mat-cell *matCellDef="let sensorDataRecord" fxShow fxHide.lt-md>
       <a mat-stroked-button [routerLink]="['/live', sensorDataRecord.assetName]">Show Live Data</a>
     </td>
   </ng-container>
