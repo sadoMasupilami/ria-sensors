@@ -14,6 +14,12 @@ and corresponding plots, that visualize the data in real-time.
 
 ![Sensor Graph View](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-live-screenshot.png?inline=false "Sensor Graph View")
 
+![Sensor Table](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-home-screenshot.png?inline=false "Sensor Table")
+
+**Sensor Graph View**
+
+![Sensor Recording View](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-recordings-screenshot.png?inline=false "Sensor Recording View")
+
 ### Protocol
 
 To run the application an MQTT Broker like RabbitMQ or Mosquitto is required.
