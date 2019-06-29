@@ -14,7 +14,7 @@ and corresponding plots, that visualize the data in real-time.
 
 ![Sensor Graph View](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-live-screenshot.png?inline=false "Sensor Graph View")
 
-**Sensor Graph View**
+**Recording View**
 
 ![Sensor Recording View](https://git-iit.fh-joanneum.at/podbrega19/ria-sensor-ui/raw/master/docs/img/ui-recordings-screenshot.png?inline=false "Sensor Recording View")
 
