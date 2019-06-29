@@ -1,9 +1,26 @@
+/*:host {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  flex-wrap: wrap;*/
+/*}*/
+.sensor-plot {
+  /*min-width: %;*/
+  text-align: center;
+  margin: 1%;
+}
+
 :host {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  width: 100%;
 }
-.sensor-plot {
-  min-width: 60%;
-  margin: 3em;
+
+.sensor-plot-container {
+  width: 80%;
+}
+
+@media screen and (max-width: 960px) {
+  .sensor-plot-container {
+    width: 100%;
+  }
 }

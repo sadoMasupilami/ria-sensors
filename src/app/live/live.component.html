@@ -1,8 +1,13 @@
-<mat-card class="sensor-plot" *ngFor="let sensorPlot of sensorPlots$ | async">
-  <mat-card-title>{{ sensorPlot.assetName }}</mat-card-title>
-  <mat-card-content>
-    <plotly-plot [data]="(sensorMeasurements$[sensorPlot.assetName]) | async" [layout]="sensorPlot.layout"
-                 [revision]="0" [config]="sensorPlot.config" useResizeHandler="false"></plotly-plot>
-  </mat-card-content>
-</mat-card>
-
+<div class="sensor-plot-container"
+     fxLayout="row wrap" fxLayoutGap="3em"
+     fxLayout.lt-md="column" fxLayoutGap.lt-md="1em"
+     fxLayoutAlign="start">
+  <mat-card class="sensor-plot" *ngFor="let sensorPlot of sensorPlots$ | async"
+    fxFlex="1 1 calc(50% - 3em)">
+    <mat-card-title>{{ sensorPlot.assetName }}</mat-card-title>
+    <mat-card-content>
+      <plotly-plot [data]="(sensorMeasurements$[sensorPlot.assetName]) | async" [layout]="sensorPlot.layout"
+                   [revision]="0" [config]="sensorPlot.config" useResizeHandler="false"></plotly-plot>
+    </mat-card-content>
+  </mat-card>
+</div>
