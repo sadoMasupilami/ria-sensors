@@ -21,7 +21,7 @@ client.on('connect', function () {
     //
     intervalHandle = setInterval(function () {
         client.publish(topicName, JSON.stringify(createFakeSensorEvent()));
-    }, 200);
+    }, 1000);
 });
 process.on('SIGTERM', function () {
     console.info('SIGTERM signal received.');

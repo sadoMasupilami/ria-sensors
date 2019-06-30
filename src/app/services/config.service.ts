@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 export class ConfigService {
 
   // private url = 'http://mariadb.mklug.at:5000/api/';
-  url = 'http://' + window.location.host + ':5000/api/';
+  url = 'http://' + window.location.hostname + ':5000/api/';
 
   constructor() {
     // console.log(this.url);
