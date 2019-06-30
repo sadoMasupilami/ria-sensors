@@ -4,7 +4,7 @@ import json
 import pika
 import time
 
-host = 'localhost'
+host = 'rabbitmq'
 
 def get_current_milli_time():
     return int(round(time.time() * 1000))
@@ -85,6 +85,7 @@ def send_data():
 
 
 def main():
+    time.sleep(30)
     try:
         send_data()
     except:
