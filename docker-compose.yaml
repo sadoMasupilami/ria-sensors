@@ -2,6 +2,7 @@ version: '3'
 services:
   rabbitmq:
     image: rabbitmq:3-management
+    restart: always
     environment:
 #      RABBITMQ_DEFAULT_USER: "rabbitmq"
 #      RABBITMQ_DEFAULT_PASS: "rabbitmq"
@@ -15,10 +16,11 @@ services:
       - "./rabbitmq/enabled_plugins:/etc/rabbitmq/enabled_plugins"
 
   sensor-ui:
+    restart: always
     build: .
     ports:
       - "8080:80"
 
   owm-sensor:
+    restart: always
     build: python/.
-
