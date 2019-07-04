@@ -85,7 +85,7 @@ def send_data():
 
 
 def main():
-    time.sleep(30)
+    time.sleep(15)
     try:
         send_data()
     except:
