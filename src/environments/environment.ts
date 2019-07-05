@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   mqttBroker: {
-    hostname: 'game2.mklug.at',
+    hostname: 'localhost',
     port: 15675,
     path: '/ws'
   }
